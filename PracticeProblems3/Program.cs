@@ -18,8 +18,11 @@ namespace PracticeProblems3
             //HUMANE SOCIETY
 
             //WEATHER FORECAST
-            Weather weather = new Weather();
-            weather.displayForecast();
+            //Weather weather = new Weather();
+            //weather.displayForecast();
+            
+            //CAR DEALERSHIP
+
             
             Console.ReadKey();
         }

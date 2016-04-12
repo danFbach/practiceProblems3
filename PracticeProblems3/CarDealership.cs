@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace PracticeProblems3
 {
-    class CarDealership
+    public class CarDealership
     {
+        public CarDealership()
+        {
+
+        }
+
+
+
     }
 }
 //Inheritance, Properties, Generics, Interfaces/Abstract Classes
@@ -17,4 +24,4 @@ namespace PracticeProblems3
 //-    Create a customer class that has the ability to test drive a vehicle, haggle in an attempt to get the price down, purchase a vehicle. Also, the customer must have a name and ID number.
 //-    Write to a .txt file a customer’s ID number, name, and vehicle the customer purchased. Each customer should be printed to a different line in the .txt file. Read from the .txt file so there is persistent data in the program (if the program is stopped and ran again, it is possible to see which customers purchased what vehicles). 
 //-    There are plenty of opportunities to use properties, generics, interfaces/abstract classes. Also, make sure to use the appropriate access modifiers (public, private, protected).
-//Enums
+//Enums 

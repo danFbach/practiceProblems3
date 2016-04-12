@@ -45,12 +45,14 @@
   <ItemGroup>
     <Compile Include="Animals.cs" />
     <Compile Include="CarDealership.cs" />
+    <Compile Include="CarFactory.cs" />
     <Compile Include="CustomIteratorAirplane.cs" />
     <Compile Include="Flights.cs" />
     <Compile Include="HumaneSociety.cs" />
     <Compile Include="OverloadBirthday.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vehicles.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="DailyWeather.cs" />
   </ItemGroup>

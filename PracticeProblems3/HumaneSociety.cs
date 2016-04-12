@@ -8,10 +8,11 @@ namespace PracticeProblems3
 {
     public class HumaneSociety
     {
-        List<Animals> animalList;
         enum animalTypes{dog, cat, birds, rabbits};
+        List<Animals> animalList = new List<Animals>();
         public void addAnimals()
         {
+
             animalList.Add(new Animals("Poppy",0,"labrador",4));
             animalList.Add(new Animals("Sparky", 0, "South Parkian", 3));
             animalList.Add(new Animals("Flappy", 2, "Parakeet", 6));
