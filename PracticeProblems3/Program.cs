@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace PracticeProblems3
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
+            List<Flights> flights = newFlight.addFlights();
+            newFlight.flightstuff();
+            
+            Console.ReadKey();
         }
     }
+
+
+
+
 }
+
+
