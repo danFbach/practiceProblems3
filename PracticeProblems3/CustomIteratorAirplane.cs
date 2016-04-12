@@ -24,7 +24,7 @@ namespace PracticeProblems3
             foreach(Flights flight in flightPlans)
             {
                 if(flight.city.Equals("Los Angeles"))
-                {
+                {                    
                     yield return flight;
                 }
             }

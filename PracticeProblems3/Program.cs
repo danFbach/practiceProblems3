@@ -20,17 +20,16 @@ namespace PracticeProblems3
             //WEATHER FORECAST
             //Weather weather = new Weather();
             //weather.displayForecast();
-            
+
             //CAR DEALERSHIP
 
-            
-            Console.ReadKey();
+            //BIRTHDAY
+            OverloadBirthday bday = new OverloadBirthday();
+            bday.displayPeople();
+            int personIndex = bday.getPerson();
+            bday.trythis(personIndex);            
         }
     }
-
-
-
-
 }
 
 
