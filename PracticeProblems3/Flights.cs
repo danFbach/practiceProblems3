@@ -9,7 +9,6 @@ namespace PracticeProblems3
     public class Flights
     {
         public string city;
-        public double time;
         public int flightNumber;
         public int hour;
         public int minute;

@@ -10,9 +10,16 @@ namespace PracticeProblems3
     {
         static void Main(string[] args)
         {
-            CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
-            List<Flights> flights = newFlight.addFlights();
-            newFlight.flightstuff();
+            //FLIGHTS
+            //CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
+            //newFlight.addFlights();
+            //newFlight.flightstuff();
+
+            //HUMANE SOCIETY
+
+            //WEATHER FORECAST
+            Weather weather = new Weather();
+            weather.displayForecast();
             
             Console.ReadKey();
         }

@@ -29,7 +29,7 @@ namespace PracticeProblems3
                 }
             }
         }
-        public List<Flights> addFlights()
+        public void addFlights()
         {
             flightPlans.Add(new Flights("New York", 11, 20, 1275));
             flightPlans.Add(new Flights("Denver", 11, 20, 1787));
@@ -51,7 +51,6 @@ namespace PracticeProblems3
             flightPlans.Add(new Flights("Cleveland", 15, 39, 4401));
             flightPlans.Add(new Flights("San Francisco", 15 ,50, 679));
             flightPlans.Add(new Flights("Charlotte", 16, 20, 5098));
-            return flightPlans;
         }
     }
 }
