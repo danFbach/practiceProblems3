@@ -43,19 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animals.cs" />
-    <Compile Include="CarDealership.cs" />
-    <Compile Include="CarFactory.cs" />
-    <Compile Include="CustomIteratorAirplane.cs" />
-    <Compile Include="Flights.cs" />
-    <Compile Include="HumaneSociety.cs" />
-    <Compile Include="OverloadBirthday.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="humaneSociety\Animals.cs" />
+    <Compile Include="Dealership\CarDealership.cs" />
+    <Compile Include="Dealership\CarFactory.cs" />
+    <Compile Include="Flights\CustomIteratorAirplane.cs" />
+    <Compile Include="Flights\Flights.cs" />
+    <Compile Include="humaneSociety\HumaneSociety.cs" />
+    <Compile Include="Birthday\OverloadBirthday.cs" />
+    <Compile Include="Birthday\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vehicles.cs" />
-    <Compile Include="Weather.cs" />
-    <Compile Include="DailyWeather.cs" />
+    <Compile Include="Dealership\Vehicles.cs" />
+    <Compile Include="Weather\Weather.cs" />
+    <Compile Include="Weather\DailyWeather.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

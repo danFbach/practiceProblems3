@@ -31,6 +31,7 @@ namespace PracticeProblems3
             {
                 Console.WriteLine(day);
             }
+            Console.ReadKey();
         }
     }
 }

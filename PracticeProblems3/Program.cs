@@ -16,8 +16,8 @@ namespace PracticeProblems3
             //newFlight.flightstuff();
 
             //HUMANE SOCIETY
-            HumaneSociety humaneSociety = new HumaneSociety();
-            humaneSociety.displayAnimals();
+            //HumaneSociety humaneSociety = new HumaneSociety();
+            //humaneSociety.displayAnimals();
 
             //WEATHER FORECAST
             //Weather weather = new Weather();
@@ -29,7 +29,12 @@ namespace PracticeProblems3
             //OverloadBirthday bday = new OverloadBirthday();
             //bday.displayPeople();
             //int personIndex = bday.getPerson();
-            //bday.trythis(personIndex);            
+            //bday.trythis(personIndex);         
+            
+            //WEATHER
+            Weather weather = new Weather();
+            weather.displayForecast();  
+
         }
     }
 }
