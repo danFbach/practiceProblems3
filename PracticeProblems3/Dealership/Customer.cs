@@ -8,14 +8,18 @@ namespace PracticeProblems3.Dealership
 {
     public class Customer
     {
-        public string name;
+        public string firstName;
+        public string lastName;
         public int customerID;
-        public string carPreference;
-        public Customer(string name, int customerID, string carPreference)
+        public string carTypePurchased;
+        public int purchasePrice;
+        public Customer(string firstName, string lastName, int customerID, string carTypePurchased, int purchasePrice)
         {
-            this.name = name;
+            this.lastName = lastName;
+            this.firstName = firstName;
             this.customerID = customerID;
-            this.carPreference = carPreference;
+            this.carTypePurchased = carTypePurchased;
+            this.purchasePrice = purchasePrice;
         }
     }
 }

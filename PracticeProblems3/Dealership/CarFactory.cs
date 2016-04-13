@@ -26,7 +26,6 @@ namespace PracticeProblems3
             Console.WriteLine("How many {0}'s would you like to order", carName);
             bool check = int.TryParse(Console.ReadLine(), out orderQty);
             return check ? orderQty : orderQuantity(carType);
-
         }
         public List<Vehicle> OrderVehicles(int numberToMake, int Type)
         {
@@ -56,9 +55,8 @@ namespace PracticeProblems3
                 vehicles.Add(vehicleType);
                 vehicelesMade++;
             }
-            
             return vehicles;
-        } 
+        }
         public string typeIdentifier(int carType)
         {
             string carName = "";
@@ -81,9 +79,7 @@ namespace PracticeProblems3
                     return carName;
                 default:
                     return carName;
-
             }
-
         }
     }
 }

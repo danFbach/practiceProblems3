@@ -9,7 +9,7 @@ namespace PracticeProblems3.Dealership
 {
     public class FileReader
     {
-        public string customers = "../../Dealership/CustomerDatabase";
+        public string customers = "../../Dealership/CustomerDatabase.csv";
         public string inventoryFile = "../../Dealership/VehicleInventory.csv";
         public string line = "";
         public char divider = ',';
@@ -24,11 +24,14 @@ namespace PracticeProblems3.Dealership
                 while((line = getCustData.ReadLine()) != null)
                 {
                     string[] decodeCustomer = line.Split(divider);
-                    string name = decodeCustomer[0];
-                    string idNum = decodeCustomer[1];
-                    string carPreference = decodeCustomer[2];
+                    string firstName = decodeCustomer[0];
+                    string lastName = decodeCustomer[1];
+                    string idNum = decodeCustomer[2];
+                    string carTypePurchased = decodeCustomer[3];
+                    string purchPrice = decodeCustomer[4];
+                    int purchasePrice = Convert.ToInt16(purchPrice);
                     int customerID = Convert.ToInt16(idNum);
-                    customerData.Add(new Customer(name, customerID, carPreference));
+                    customerData.Add(new Customer(firstName, lastName, customerID, carTypePurchased, purchasePrice));
                 }
                 return customerData;
             }

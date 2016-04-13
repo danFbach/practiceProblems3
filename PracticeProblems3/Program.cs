@@ -26,8 +26,8 @@ namespace PracticeProblems3
             //weather.displayForecast();
 
             //CAR DEALERSHIP
-            CarDealership carDealership = new CarDealership();
-            carDealership.placeAnOrder();
+            Menu menu = new Menu();
+            menu.mainMenu();
 
             //BIRTHDAY
             //OverloadBirthday bday = new OverloadBirthday();

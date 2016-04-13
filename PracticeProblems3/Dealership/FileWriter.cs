@@ -17,10 +17,12 @@ namespace PracticeProblems3.Dealership
             {
                 foreach(Customer customer in customerList)
                 {
-                    string name = customer.name;
+                    string firstName = customer.firstName;
+                    string lastName = customer.lastName;
                     int idNumber = customer.customerID;
-                    string carPreference = customer.carPreference;
-                    customerDatabase.WriteLine("{0},{1},{2}", name, idNumber, carPreference);
+                    string carTypePurchased = customer.carTypePurchased;
+                    int purhcasePrice = customer.purchasePrice;
+                    customerDatabase.WriteLine("{0},{1},{2},{3},{4}", firstName, lastName, idNumber, carTypePurchased, purhcasePrice);
                 }
             }
         }
