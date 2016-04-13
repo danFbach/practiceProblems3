@@ -26,14 +26,16 @@ namespace PracticeProblems3
         }
         public string ToString(int whatever)
         {
-            if(whatever == 1)
+            if (whatever == 1)
             {
                 return (String.Format("Person: {0} {1} || Age: {2}", firstName, lastName, this.age));
             }
-            else
+            else if (whatever == 2)
             {
                 return (String.Format("Person: {0} {1} || Age: {2} || Birthday: {3}", firstName, lastName, this.age, birthday));
             }
+            else return String.Format(firstName);
+                
         }
 
     }

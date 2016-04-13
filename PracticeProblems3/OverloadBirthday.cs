@@ -36,7 +36,7 @@ namespace PracticeProblems3
             foreach(Person person in people)
             {
                 Console.Write("{0})", count);
-                Console.WriteLine(person);
+                Console.WriteLine(person.ToString(2));
                 count++;
             }
         }
