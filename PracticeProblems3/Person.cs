@@ -35,7 +35,7 @@ namespace PracticeProblems3
                 return (String.Format("Person: {0} {1} || Age: {2} || Birthday: {3}", firstName, lastName, this.age, birthday));
             }
             else return String.Format(firstName);
-                
+
         }
 
     }

@@ -8,20 +8,37 @@ namespace PracticeProblems3
 {
     public class HumaneSociety
     {
-        enum animalTypes{dog, cat, birds, rabbits};
+        public HumaneSociety()
+        {
+            addAnimals();
+        }
+        public enum Dog { Labrador, SouthParkian, GermanSheppard, Chow };
+        public enum Cat { White, Brown, Black };
+        public enum Bird { Parakeet, Canary, Parrot };
+        public enum Rabbit { Droopy, Hopster };
         List<Animals> animalList = new List<Animals>();
+        public void displayAnimals()
+        {
+            foreach (Animals animal in animalList)
+            {
+                Console.WriteLine(animal);
+            }
+            Console.ReadKey();
+        }
         public void addAnimals()
         {
-
-            animalList.Add(new Animals("Poppy",0,"labrador",4));
-            animalList.Add(new Animals("Sparky", 0, "South Parkian", 3));
-            animalList.Add(new Animals("Flappy", 2, "Parakeet", 6));
-            animalList.Add(new Animals("Bugs Bunny", 3, "Droopy Ears", 3));
-            animalList.Add(new Animals("Tweetie", 2, "Canary", 50));
-            animalList.Add(new Animals("Hopper", 3, "Super Hop", 5));
-            animalList.Add(new Animals("Killer", 0, "German Sheppard", 4));
-            animalList.Add(new Animals("Fluff", 0, "Chow Chow", 5));
-            animalList.Add(new Animals("Jack", 2, "Parrot", 6));
+            animalList.Add(new Animals("Poppy", Dog.Labrador, 4));
+            animalList.Add(new Animals("Sparky", Dog.SouthParkian, 3));
+            animalList.Add(new Animals("Mr.Kitty", Cat.Brown, 4));
+            animalList.Add(new Animals("Flappy", Bird.Parakeet, 6));
+            animalList.Add(new Animals("Bugs Bunny", Rabbit.Droopy, 3));
+            animalList.Add(new Animals("KitKat", Cat.Black, 5));
+            animalList.Add(new Animals("Tweetie", Bird.Canary, 50));
+            animalList.Add(new Animals("Hopper", Rabbit.Hopster, 5));
+            animalList.Add(new Animals("John Smith", Cat.White, 7));
+            animalList.Add(new Animals("Killer", Dog.GermanSheppard, 4));
+            animalList.Add(new Animals("Fluff", Dog.Chow, 5));
+            animalList.Add(new Animals("Jack", Bird.Parrot, 6));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace PracticeProblems3
         {
             Person newPerson = people[personIndex] + people[personIndex].age;
             Console.Write(newPerson.ToString(1));
-            Console.ReadKey();  
+            Console.ReadKey();
         }
         public void newPeople()
         {
@@ -33,7 +33,7 @@ namespace PracticeProblems3
         public void displayPeople()
         {
             int count = 0;
-            foreach(Person person in people)
+            foreach (Person person in people)
             {
                 Console.Write("{0})", count);
                 Console.WriteLine(person.ToString(2));
@@ -48,8 +48,5 @@ namespace PracticeProblems3
             if (check) { return personNum; }
             else return getPerson();
         }
-
     }
 }
-//Overload Operator
-//-    Problem 1: Create a person class that has a first name, last name, age, and birthday. The Person constructor should take in a birthday.  Overload the plus (+) operator to take in a Person and integer and return a Person. The returned Person should display what age they will be 12 years later. 
