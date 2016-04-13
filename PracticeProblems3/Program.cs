@@ -10,6 +10,7 @@ namespace PracticeProblems3
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             //FLIGHTS
             //CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
             //newFlight.addFlights();
@@ -24,6 +25,8 @@ namespace PracticeProblems3
             //weather.displayForecast();
 
             //CAR DEALERSHIP
+            CarDealership carDealership = new CarDealership();
+            carDealership.placeAnOrder();
 
             //BIRTHDAY
             //OverloadBirthday bday = new OverloadBirthday();
@@ -32,8 +35,8 @@ namespace PracticeProblems3
             //bday.trythis(personIndex);         
             
             //WEATHER
-            Weather weather = new Weather();
-            weather.displayForecast();  
+            //Weather weather = new Weather();
+            //weather.displayForecast();  
 
         }
     }

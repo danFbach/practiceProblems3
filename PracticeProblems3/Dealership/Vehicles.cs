@@ -8,12 +8,15 @@ namespace PracticeProblems3
 {
     public class Vehicles
     {
-        public Enum make;
-        public Enum vehicleType;
-        public Vehicles(Enum make,Enum vehicleType)
+        public int price;
+        public string type;
+        public Vehicles()
         {
-            this.make = make;
-            this.vehicleType = vehicleType;
         }
+        public override string ToString()
+        {
+            return String.Format("Type of vehicle: {0}   |   Price: {1}", type, price.ToString("C2"));
+        }
+
     }
 }

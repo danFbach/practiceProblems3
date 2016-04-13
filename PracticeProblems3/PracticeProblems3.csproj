@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dealership\Coupe.cs" />
+    <Compile Include="Dealership\Sedan.cs" />
+    <Compile Include="Dealership\SportsCar.cs" />
+    <Compile Include="Dealership\SUV.cs" />
+    <Compile Include="Dealership\Truck.cs" />
+    <Compile Include="Dealership\FileWriter.cs" />
+    <Compile Include="FileReader.cs" />
     <Compile Include="humaneSociety\Animals.cs" />
     <Compile Include="Dealership\CarDealership.cs" />
     <Compile Include="Dealership\CarFactory.cs" />
@@ -59,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Dealership\CustomerDatabase.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

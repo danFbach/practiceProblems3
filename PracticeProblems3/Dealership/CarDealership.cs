@@ -8,13 +8,29 @@ namespace PracticeProblems3
 {
     public class CarDealership
     {
+        List<Vehicles> lotInventory = new List<Vehicles>();
+            CarFactory carFactory = new CarFactory();
         public CarDealership()
         {
-
         }
+        public void placeAnOrder()
+        {
+            int typeOfCar = carFactory.orderType();
+            int orderQty = carFactory.orderQuantity(typeOfCar);
+            List<Vehicles> tempInventory = carFactory.OrderVehicles(orderQty, typeOfCar);
+            lotInventory.AddRange(tempInventory);
+            tempInventory.Clear();
+            foreach(Vehicles vehicle in lotInventory)
+            {
+                Console.WriteLine(vehicle);
+            }
+            Console.WriteLine("Would you like to place another order? (Y/N)");
+            string reorder = Console.ReadLine();
+            reorder = reorder.ToLower();
 
-
-
+            if (reorder.Equals("y")){ Console.Clear(); placeAnOrder(); }
+            
+        }
     }
 }
 //Inheritance, Properties, Generics, Interfaces/Abstract Classes
