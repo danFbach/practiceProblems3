@@ -10,8 +10,8 @@ namespace PracticeProblems3
 {
     public class CarFactory
     {
-        List<Vehicles> vehicles = new List<Vehicles>();
-        public Vehicles vehicleType;
+        List<Vehicle> vehicles = new List<Vehicle>();
+        public Vehicle vehicleType;
         public int orderType()
         {
             int vehicleOrderType;
@@ -28,7 +28,7 @@ namespace PracticeProblems3
             return check ? orderQty : orderQuantity(carType);
 
         }
-        public List<Vehicles> OrderVehicles(int numberToMake, int Type)
+        public List<Vehicle> OrderVehicles(int numberToMake, int Type)
         {
             int vehicelesMade = 0;
             if (Type.Equals(1))

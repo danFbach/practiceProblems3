@@ -3,31 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PracticeProblems3.Dealership;
+
 
 namespace PracticeProblems3
 {
     public class CarDealership
     {
-        List<Vehicles> lotInventory = new List<Vehicles>();
-            CarFactory carFactory = new CarFactory();
+        List<Vehicle> lotInventory = new List<Vehicle>();
+        List<Customer> customers = new List<Customer>();
+        FileWriter writer = new FileWriter();
+        FileReader reader = new FileReader();
+        CarFactory carFactory = new CarFactory();
         public CarDealership()
         {
+            lotInventory = reader.getVehicles();
         }
         public void placeAnOrder()
         {
             int typeOfCar = carFactory.orderType();
             int orderQty = carFactory.orderQuantity(typeOfCar);
-            List<Vehicles> tempInventory = carFactory.OrderVehicles(orderQty, typeOfCar);
+            List<Vehicle> tempInventory = carFactory.OrderVehicles(orderQty, typeOfCar);
             lotInventory.AddRange(tempInventory);
             tempInventory.Clear();
-            foreach(Vehicles vehicle in lotInventory)
+            foreach(Vehicle vehicle in lotInventory)
             {
                 Console.WriteLine(vehicle);
             }
+            writer.vehicleInventory(lotInventory);
             Console.WriteLine("Would you like to place another order? (Y/N)");
             string reorder = Console.ReadLine();
             reorder = reorder.ToLower();
-
+            
             if (reorder.Equals("y")){ Console.Clear(); placeAnOrder(); }
             
         }

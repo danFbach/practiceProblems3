@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeProblems3
+namespace PracticeProblems3.Dealership
 {
-    public class Vehicles
+    public class Vehicle
     {
         public int price;
         public string type;
-        public Vehicles()
+        public Vehicle()
         {
         }
         public override string ToString()

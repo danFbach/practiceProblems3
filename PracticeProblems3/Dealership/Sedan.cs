@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeProblems3.Dealership
 {
-    public class Sedan : Vehicles
+    public class Sedan : Vehicle
     {
         public Sedan(int price)
         {
