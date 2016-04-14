@@ -10,7 +10,6 @@ namespace PracticeProblems3
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.White;
             ////FLIGHTS
             //CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
             //newFlight.addFlights();
@@ -21,8 +20,8 @@ namespace PracticeProblems3
             //humaneSociety.displayAnimals();            
 
             //CAR DEALERSHIP
-            Menu menu = new Menu();
-            menu.mainMenu();
+            //Menu menu = new Menu();
+            //menu.mainMenu();
 
             ////BIRTHDAY
             //OverloadBirthday bday = new OverloadBirthday();

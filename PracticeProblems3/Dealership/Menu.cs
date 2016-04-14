@@ -11,27 +11,27 @@ namespace PracticeProblems3
         CarDealership carDealership = new CarDealership();
         public void mainMenu()
         {
-            int userType = getUserType();
-            if (userType.Equals(1))
+            int userType = 0;
+            bool run = true;
+            while (run)
             {
-                dealerActions();
-            }
-            else
-            {
-                string fullName = carDealership.getCustomerInfo();
-                customerActions(fullName);
-            }
+                Console.Clear();
+                Console.WriteLine("Hello, are you, a(n)... \n\r1) Employee? \n\r2) Customer? \n\r3) Shutdown the computer.");
+                bool check = int.TryParse(Console.ReadLine(), out userType);
+                if (!check) { mainMenu(); }
+                if (userType.Equals(1))
+                {
+                    dealerActions();
+                }
+                else if (userType.Equals(2))
+                {
+                    string fullName = carDealership.getCustomerInfo();
+                    customerActions(fullName);
+                }
+                else if (userType.Equals(3)) { run = false; }
+            }            
         }
-        public int getUserType()
-        {
-            int userType;
-            Console.WriteLine("Hello, are you, a(n)... \n\r1) Employee? \n\r2) Customer? \n\r3) Shutdown the computer.");
-            bool check = int.TryParse(Console.ReadLine(), out userType);
-            if (!check) { return getUserType(); }
-            if(userType.Equals(1) || userType.Equals(2)){ return userType; }
-            else if (userType.Equals(3)) { }
-            return getUserType();           
-        }        
+        
         public void customerActions(string fullName)
         {
             int carSelection = 0;
@@ -50,6 +50,7 @@ namespace PracticeProblems3
                 carSelection = customerBrowse(fullName);
             }
             buyACar(carSelection);
+            Console.ReadKey();
         }
         public void dealerActions()
         {
@@ -106,12 +107,24 @@ namespace PracticeProblems3
             Console.WriteLine("Will you... \n\r1) Pay full price? \n\r2) Ask for a lower price?");
             bool check = int.TryParse(Console.ReadLine(), out buyType);
             if (!check) { Console.WriteLine("Invalid Selection."); buyACar(carSelection); }
-            if (buyType.Equals(1)) { }
-            else if (buyType.Equals(2)) { }
+            if (buyType.Equals(1))
+            {
+                Console.WriteLine("Great, the car is yours! Thank you for your purchase!");
+                carDealership.finalizeSale(carSelection, 0);
+            }
+            else if (buyType.Equals(2))
+            {
+                int askPrice;
+                bool sell = true;
+                while(sell == true)
+                {
+                    Console.WriteLine("The normal price is {0}, what would you like to pay for it?", carDealership.lotInventory[carSelection].price);
+                    bool check1 = int.TryParse(Console.ReadLine(), out askPrice);
+                    sell = carDealership.hagglePrice(carSelection, askPrice);
+                }
+            }
             else { Console.WriteLine("Invalid choice."); buyACar(carSelection); }
             
         }
     }
 }
-
-//-    Create a customer class that has the ability to test drive a vehicle, haggle in an attempt to get the price down, purchase a vehicle. Also, the customer must have a name and ID number.

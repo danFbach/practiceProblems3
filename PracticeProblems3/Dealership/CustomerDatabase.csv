@@ -1,18 +1,5 @@
 Jesus,Christ,0,no purchase,0
 Adam,Martell,1,no purchase,0
-Charles,Gnarly,2,no purchase,0
-Chewbacca,Caca,3,no purchase,0
-John Smith,Smith,4,no purchase,0
-Adam,Martell,5,no purchase,0
-,,6,no purchase,0
-,,7,no purchase,0
-dan,f,8,no purchase,0
-dan,f,9,no purchase,0
-htgrf,egr,10,no purchase,0
-dan,f,11,no purchase,0
-1,g,12,no purchase,0
-rew,tre,13,no purchase,0
-,,14,no purchase,0
-,,15,no purchase,0
-,,16,no purchase,0
-,,17,no purchase,0
+t,f,2,truck,25000
+r,t,3,coupe,15000
+f,cc,4,sedan,17000

@@ -21,14 +21,26 @@ namespace PracticeProblems3
         {
             lotInventory = reader.getVehicles();
         }
+        public void finalizeSale(int carNumber, int hagglePrice)
+        {
+            string firstName = customers[idNumber].firstName;
+            string lastName = customers[idNumber].lastName;
+            string carType = lotInventory[carNumber].type;
+            int amountPaid = lotInventory[carNumber].price;
+            if(hagglePrice > 0) { amountPaid = hagglePrice; }
+            customers.Insert(idNumber,new Customer(firstName, lastName, idNumber, carType, amountPaid));
+            customers.RemoveAt(idNumber+1);
+            lotInventory.RemoveAt(carNumber);
+            writer.updateCustomers(customers);
+            writer.vehicleInventory(lotInventory);
+        }
         public string getCustomerInfo()
         {
-            lotInventory[2].price -= 200;
             customers = reader.getCustomers();
             string firstName;
             string lastName;
             string fullName;
-            Console.WriteLine("Welcome to the dealship! My name is Dan, and you are?");
+            Console.WriteLine("Welcome to the dealership! My name is Dan, and you are?");
             firstName = Console.ReadLine();
             Console.WriteLine("And your last name?");
             lastName = Console.ReadLine();
@@ -42,7 +54,7 @@ namespace PracticeProblems3
         {
             string name = customers[idNumber].firstName;
             string modelSelection;
-            Console.WriteLine("So you'd like to buy a car {0}? Well, we've got a great stock for you to look at. Would you like to see a coupe, sedan, sports car, suv or truck?", name);
+            Console.WriteLine("So you'd like to test a car {0}? Well, we've got a great stock for you to look at. Would you like to see a coupe, sedan, sportscar, suv or truck?", name);
             modelSelection = Console.ReadLine();
             modelSelection = modelSelection.ToLower();
             return modelSelection;
@@ -111,7 +123,25 @@ namespace PracticeProblems3
         }
         public void salesEvent()
         {
+            string carToPutOnSale;
+            int newPrice;
+            Console.WriteLine("What type of car would you like to put on sale? coupe, sedan, sportscar, truck or suv?");
+            carToPutOnSale = Console.ReadLine();            
+            Console.WriteLine("And what would you like to new price to be?");
+            bool check = int.TryParse(Console.ReadLine(), out newPrice);
+            if (!check) { salesEvent(); }
 
+            foreach(Vehicle vehicle in lotInventory)
+            {
+                if (carToPutOnSale.Equals(vehicle.type))
+                {
+                    vehicle.price = newPrice;
+                }
+            }
+            Console.WriteLine("Here is your updated inventory.");
+            getInventory(null);            
+            writer.vehicleInventory(lotInventory);
+            Console.ReadKey();
         }
         public void driving(Vehicle selectedVehicle)
         {
@@ -137,16 +167,21 @@ namespace PracticeProblems3
             }
             Console.WriteLine();
         }
+        public bool hagglePrice(int carSelection, int customerOffer)
+        {
+            int acceptablePrice = Convert.ToInt16(lotInventory[carSelection].price * .95);
+            
+            if(customerOffer < acceptablePrice)
+            {
+                Console.WriteLine("I'm sorry that price is too low, you'll have to make another offer.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Alright, that is an acceptable offer. The car is yours.");
+                finalizeSale(carSelection, customerOffer);
+                return false;
+            }
+        }
     }
 }
-//Inheritance, Properties, Generics, Interfaces/Abstract Classes
-//-    A new auto dealership in a populated area in demand for new vehicles needs several types of vehicles available to be sold early next week. 
-    /*INCOMPLETE*/
-//-    The auto dealership also needs the ability to test the vehicles, sell the vehicles, raise/lower the price of a vehicle, have a special sales event that will set select vehicles at a discount price. 
-
-//-    There are plenty of opportunities to use properties, generics, interfaces/abstract classes. Also, make sure to use the appropriate access modifiers (public, private, protected).
-
-    /*COMPLETE*/
-//-    *****It is the job of the car manufacturer to supply the auto dealership with as many different types of vehicles as possible. Since there is a time demand for the vehicles, it is essential to have the car factory be as efficient as possible. Use inheritance to efficiently create multiple types of vehicles for the dealership. 
-//-    *****Create an auto dealership class that has the ability to put in an order for vehicles and add a specific vehicle to its fleet of vehicles. 
-//-    *****Write to a .txt file a customer’s ID number, name, and vehicle the customer purchased. Each customer should be printed to a different line in the .txt file. Read from the .txt file so there is persistent data in the program (if the program is stopped and ran again, it is possible to see which customers purchased what vehicles). 

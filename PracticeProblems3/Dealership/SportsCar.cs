@@ -11,7 +11,7 @@ namespace PracticeProblems3.Dealership
         public SportsCar(int price)
         {
             this.price = price;
-            this.type = "sports car";
+            this.type = "sportscar";
         }
     }
 }
