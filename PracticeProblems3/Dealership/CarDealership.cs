@@ -10,8 +10,9 @@ namespace PracticeProblems3
 {
     public class CarDealership
     {
-        List<Vehicle> lotInventory = new List<Vehicle>();
+        public List<Vehicle> lotInventory = new List<Vehicle>();
         List<Customer> customers = new List<Customer>();
+        Vehicle vehicle = new Vehicle();
         FileWriter writer = new FileWriter();
         FileReader reader = new FileReader();
         CarFactory carFactory = new CarFactory();
@@ -37,16 +38,14 @@ namespace PracticeProblems3
             fullName = firstName + " " + lastName;
             return fullName;
         }
-        public void buyACar()
+        public string selectACarType()
         {
             string name = customers[idNumber].firstName;
             string modelSelection;
-            Console.WriteLine("So you'd like to buy a car {0}? Well, we've got a great stock for you to look at.", name);
-            Console.WriteLine("What type of car do you like? Would you like to see a coupe, sedan, sports car, suv or truck?");
+            Console.WriteLine("So you'd like to buy a car {0}? Well, we've got a great stock for you to look at. Would you like to see a coupe, sedan, sports car, suv or truck?", name);
             modelSelection = Console.ReadLine();
             modelSelection = modelSelection.ToLower();
-            getInventory(modelSelection);
-            Console.ReadKey();
+            return modelSelection;
         }
         public int placeAnOrder()
         {
@@ -67,49 +66,76 @@ namespace PracticeProblems3
             else if (reorder.Equals("n")) { return 0; }
             else { return placeAnOrder(); }
         }
-        public void getInventory(string selection)
+        public void getInventory(string carTypeSelection)
         {
             int number = 0;
             foreach (Vehicle vehicle in lotInventory)
             {
-                if(vehicle.type == selection)
+                if(vehicle.type == carTypeSelection)
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write("\n\rStock #:{0}", number);
+                    Console.Write("Stock #:{0}", number);
                     Console.ResetColor();
-                    Console.Write(" {0}", vehicle);
-                    Thread.Sleep(25);
+                    sleep(5, 50);
+                    Console.WriteLine(" {0}", vehicle);
                     number++;
                 }
-                else if (selection == null)
+                else if (carTypeSelection == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write("\n\rStock #:{0}", number);
+                    Console.Write("Stock #:{0}", number);
                     Console.ResetColor();
-                    Console.Write(" {0}", vehicle);
-                    for (int i = 0; i < 5; i++)
-                    {
-                        Console.Write(".");
-                        Thread.Sleep(50);
-                    }
+                    sleep(5,50);
+                    Console.WriteLine(" {0}", vehicle);                    
                     number++;
                 }
                 else
                 number++;
             }
         }
-        public void testDrive()
+        public int testDrive(string name)
         {
             int inventoryNumber;
             Console.WriteLine("Please enter the inventory number of the car you would like to test.");
             bool check = int.TryParse(Console.ReadLine(), out inventoryNumber);
-            if (!check) { Console.WriteLine("Invalid Entry"); testDrive(); }
-            if(inventoryNumber > lotInventory.Count) { Console.WriteLine("Not a valid car selection."); testDrive(); }
-            
+            if (!check) { Console.WriteLine("Invalid Entry"); testDrive(name); }
+            if(inventoryNumber > lotInventory.Count) { Console.WriteLine("Not a valid car selection."); testDrive(name); }
+            else
+            {
+                Console.WriteLine("Great! I will pull that car right up for you {0}.",name);
+                sleep(25, 75);
+                driving(lotInventory[inventoryNumber]);
+                return inventoryNumber;
+            }
+            return inventoryNumber;
         }
         public void salesEvent()
         {
 
+        }
+        public void driving(Vehicle selectedVehicle)
+        {
+            Console.WriteLine("Here's the car that you requested.\n\r{0}");
+            bool drive = true;
+            while (drive)
+            {
+                int driveAction;
+                Console.WriteLine("Would you like to... \n\r1) Accelerate \n\r2) Deccelerate \n\r3) Return to Dealership");
+                bool check = int.TryParse(Console.ReadLine(), out driveAction);
+                if (driveAction.Equals(1)) { vehicle.accelerate(); }
+                else if (driveAction.Equals(2)) { vehicle.deccelerate(); }
+                else if (driveAction.Equals(3)) { vehicle.returnToDealer(); drive = false; }
+                else { driving(selectedVehicle); }
+            }
+        }
+        public void sleep(int dots, int delay)
+        {
+            for (int i = 0; i < dots; i++)
+            {
+                Console.Write(".");
+                Thread.Sleep(delay);
+            }
+            Console.WriteLine();
         }
     }
 }

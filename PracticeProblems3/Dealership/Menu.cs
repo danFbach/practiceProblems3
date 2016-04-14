@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeProblems3.Dealership
+namespace PracticeProblems3
 {
     public class Menu
     {
@@ -34,18 +34,22 @@ namespace PracticeProblems3.Dealership
         }        
         public void customerActions(string fullName)
         {
+            int carSelection = 0;
             string choice;
             Console.WriteLine("Well, {0} we've got some great deals that I would love to show you. How about we look at the cars available and let you pick one to test drive. (Y/N)?", fullName);
             choice = Console.ReadLine();
             choice = choice.ToLower();
             if (choice.Equals("y"))
             {
-                carDealership.buyACar();
+                string carType = carDealership.selectACarType();
+                carDealership.getInventory(carType);
+                carSelection = carDealership.testDrive(fullName);
             }
             else if (choice.Equals("n"))
             {
-                customerBrowse(fullName);
+                carSelection = customerBrowse(fullName);
             }
+            buyACar(carSelection);
         }
         public void dealerActions()
         {
@@ -63,7 +67,8 @@ namespace PracticeProblems3.Dealership
                     carDealership.placeAnOrder();
                     break;
                 case (3):
-                    carDealership.testDrive();
+                    carDealership.getInventory(null);
+                    carDealership.testDrive(null);
                     break;
                 case (4):
                     carDealership.salesEvent();
@@ -77,7 +82,7 @@ namespace PracticeProblems3.Dealership
             choice = choice.ToLower();
             if (choice.Equals("y")) { dealerActions(); }
         }
-        public void customerBrowse(string fullName)
+        public int customerBrowse(string fullName)
         {
             Console.WriteLine("Well perhaps you would like to just go look at what we have and come back...I'll let you go check things out. \n\rpress any key to continue.");
             Console.ReadKey();
@@ -87,10 +92,24 @@ namespace PracticeProblems3.Dealership
             choice2 = choice2.ToLower();
             if (choice2.Equals("y"))
             {
-                carDealership.testDrive();
+                int inventorySelection = carDealership.testDrive(fullName);
+                return inventorySelection;
             }
             else if (choice2.Equals("n")) { }
-            else { customerBrowse(fullName); }
+            else { return customerBrowse(fullName); }
+            return 0;
+        }
+        public void buyACar(int carSelection)
+        {
+            int buyType;
+            Console.WriteLine("So now that you've test driven a car can I interest you in buying it today? My records show that you were interested in a {0} that is {1}.", carDealership.lotInventory[carSelection].type,carDealership.lotInventory[carSelection].price.ToString("C2"));
+            Console.WriteLine("Will you... \n\r1) Pay full price? \n\r2) Ask for a lower price?");
+            bool check = int.TryParse(Console.ReadLine(), out buyType);
+            if (!check) { Console.WriteLine("Invalid Selection."); buyACar(carSelection); }
+            if (buyType.Equals(1)) { }
+            else if (buyType.Equals(2)) { }
+            else { Console.WriteLine("Invalid choice."); buyACar(carSelection); }
+            
         }
     }
 }

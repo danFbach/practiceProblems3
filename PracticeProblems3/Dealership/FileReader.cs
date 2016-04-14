@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using PracticeProblems3.Dealership;
 
-namespace PracticeProblems3.Dealership
+namespace PracticeProblems3
 {
     public class FileReader
     {
@@ -56,10 +57,10 @@ namespace PracticeProblems3.Dealership
                         case ("sedan"):
                             inventory.Add(new Sedan(carPrice));
                             break;
-                        case("sports Car"):
+                        case("sports car"):
                             inventory.Add(new SportsCar(carPrice));
                             break;
-                        case ("sUV"):
+                        case ("suv"):
                             inventory.Add(new SUV(carPrice));
                             break;
                         case ("truck"):
