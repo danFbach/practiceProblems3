@@ -37,6 +37,6 @@ namespace PracticeProblems3.Dealership
                     lotInventory.WriteLine("{0},{1}",type, price);
                 }
             }
-        }        
+        }
     }
 }

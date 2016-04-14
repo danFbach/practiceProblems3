@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace PracticeProblems3.Dealership
 {
-    public class Vehicle
+    public class Vehicle : IDriveable<Vehicle>
     {
+        public int speed = 0;
+        public void accelerate()
+        {
+            speed += 20;
+            if(speed > 80)
+        }
+        public void deccelerate()
+        {
+
+        }
+        public void returnToDealer()
+        {
+
+        }
         public int price;
         public string type;
         public Vehicle()

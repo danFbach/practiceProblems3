@@ -12,7 +12,7 @@ namespace PracticeProblems3.Dealership
         public Coupe(int price)
         {
             this.price = price;
-            this.type = "Coupe";
+            this.type = "coupe";
         }
     }
 }

@@ -24,13 +24,13 @@ namespace PracticeProblems3
             person.age = age + 12;
             return person;
         }
-        public string ToString(int whatever)
+        public string ToString(int format)
         {
-            if (whatever == 1)
+            if (format == 1)
             {
                 return (String.Format("Person: {0} {1} || Age: {2}", firstName, lastName, this.age));
             }
-            else if (whatever == 2)
+            else if (format == 2)
             {
                 return (String.Format("Person: {0} {1} || Age: {2} || Birthday: {3}", firstName, lastName, this.age, birthday));
             }

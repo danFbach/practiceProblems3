@@ -46,23 +46,23 @@ namespace PracticeProblems3.Dealership
                     string[] decodeInventory = line.Split(divider);
                     string type = decodeInventory[0];
                     string price = decodeInventory[1];
-                    int carPrice = Convert.ToInt16(price);
+                    int carPrice = Convert.ToInt32(price);
 
                     switch (type)
                     {
-                        case ("Coupe"):
+                        case ("coupe"):
                             inventory.Add(new Coupe(carPrice));
                             break;
-                        case ("Sedan"):
+                        case ("sedan"):
                             inventory.Add(new Sedan(carPrice));
                             break;
-                        case("Sports Car"):
+                        case("sports Car"):
                             inventory.Add(new SportsCar(carPrice));
                             break;
-                        case ("SUV"):
+                        case ("sUV"):
                             inventory.Add(new SUV(carPrice));
                             break;
-                        case ("Truck"):
+                        case ("truck"):
                             inventory.Add(new Truck(carPrice));
                             break;
                     }

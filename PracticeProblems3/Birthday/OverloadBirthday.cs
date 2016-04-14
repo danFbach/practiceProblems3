@@ -13,7 +13,7 @@ namespace PracticeProblems3
         {
             newPeople();
         }
-        public void trythis(int personIndex)
+        public void selectAPerson(int personIndex)
         {
             Person newPerson = people[personIndex] + people[personIndex].age;
             Console.Write(newPerson.ToString(1));

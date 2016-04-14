@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using PracticeProblems3.Dealership;
 
 
@@ -15,38 +15,101 @@ namespace PracticeProblems3
         FileWriter writer = new FileWriter();
         FileReader reader = new FileReader();
         CarFactory carFactory = new CarFactory();
+        public int idNumber;
         public CarDealership()
         {
             lotInventory = reader.getVehicles();
         }
-        public void customerMenu()
+        public string getCustomerInfo()
         {
+            lotInventory[2].price -= 200;
             customers = reader.getCustomers();
             string firstName;
             string lastName;
+            string fullName;
             Console.WriteLine("Welcome to the dealship! My name is Dan, and you are?");
             firstName = Console.ReadLine();
-            Console.WriteLine("And you last name.");
+            Console.WriteLine("And your last name?");
             lastName = Console.ReadLine();
-            customers.Add(new Customer(firstName, lastName, customers.Count, "no purchase", 0));
+            idNumber = customers.Count;
+            customers.Add(new Customer(firstName, lastName, idNumber, "no purchase", 0));
             writer.updateCustomers(customers);
+            fullName = firstName + " " + lastName;
+            return fullName;
         }
-        public void placeAnOrder()
+        public void buyACar()
+        {
+            string name = customers[idNumber].firstName;
+            string modelSelection;
+            Console.WriteLine("So you'd like to buy a car {0}? Well, we've got a great stock for you to look at.", name);
+            Console.WriteLine("What type of car do you like? Would you like to see a coupe, sedan, sports car, suv or truck?");
+            modelSelection = Console.ReadLine();
+            modelSelection = modelSelection.ToLower();
+            getInventory(modelSelection);
+            Console.ReadKey();
+        }
+        public int placeAnOrder()
         {
             int typeOfCar = carFactory.orderType();
             int orderQty = carFactory.orderQuantity(typeOfCar);
             List<Vehicle> tempInventory = carFactory.OrderVehicles(orderQty, typeOfCar);
             lotInventory.AddRange(tempInventory);
             tempInventory.Clear();
-            foreach (Vehicle vehicle in lotInventory)
-            {
-                Console.WriteLine(vehicle);
-            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Here's your new list of inventory.");
+            Console.ResetColor();
+            getInventory(null);
             writer.vehicleInventory(lotInventory);
-            Console.WriteLine("Would you like to place another order? (Y/N)");
+            Console.WriteLine("\n\rWould you like to place another order? (Y/N)");
             string reorder = Console.ReadLine();
             reorder = reorder.ToLower();
-            if (reorder.Equals("y")) { Console.Clear(); placeAnOrder(); }
+            if (reorder.Equals("y")) { Console.Clear(); return placeAnOrder(); }
+            else if (reorder.Equals("n")) { return 0; }
+            else { return placeAnOrder(); }
+        }
+        public void getInventory(string selection)
+        {
+            int number = 0;
+            foreach (Vehicle vehicle in lotInventory)
+            {
+                if(vehicle.type == selection)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("\n\rStock #:{0}", number);
+                    Console.ResetColor();
+                    Console.Write(" {0}", vehicle);
+                    Thread.Sleep(25);
+                    number++;
+                }
+                else if (selection == null)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("\n\rStock #:{0}", number);
+                    Console.ResetColor();
+                    Console.Write(" {0}", vehicle);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.Write(".");
+                        Thread.Sleep(50);
+                    }
+                    number++;
+                }
+                else
+                number++;
+            }
+        }
+        public void testDrive()
+        {
+            int inventoryNumber;
+            Console.WriteLine("Please enter the inventory number of the car you would like to test.");
+            bool check = int.TryParse(Console.ReadLine(), out inventoryNumber);
+            if (!check) { Console.WriteLine("Invalid Entry"); testDrive(); }
+            if(inventoryNumber > lotInventory.Count) { Console.WriteLine("Not a valid car selection."); testDrive(); }
+            
+        }
+        public void salesEvent()
+        {
+
         }
     }
 }
@@ -54,7 +117,6 @@ namespace PracticeProblems3
 //-    A new auto dealership in a populated area in demand for new vehicles needs several types of vehicles available to be sold early next week. 
     /*INCOMPLETE*/
 //-    The auto dealership also needs the ability to test the vehicles, sell the vehicles, raise/lower the price of a vehicle, have a special sales event that will set select vehicles at a discount price. 
-//-    Create a customer class that has the ability to test drive a vehicle, haggle in an attempt to get the price down, purchase a vehicle. Also, the customer must have a name and ID number.
 
 //-    There are plenty of opportunities to use properties, generics, interfaces/abstract classes. Also, make sure to use the appropriate access modifiers (public, private, protected).
 

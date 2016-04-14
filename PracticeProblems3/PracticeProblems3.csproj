@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Dealership\Coupe.cs" />
     <Compile Include="Dealership\Customer.cs" />
+    <Compile Include="Dealership\IDriveable.cs" />
     <Compile Include="Dealership\Menu.cs" />
     <Compile Include="Dealership\Sedan.cs" />
     <Compile Include="Dealership\SportsCar.cs" />
