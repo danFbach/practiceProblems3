@@ -8,10 +8,22 @@ namespace PracticeProblems3.Dealership
 {
     public class Vehicle : IDriveable<Vehicle>
     {
-        public int price;
+        private int Price;
         public string type;
         public Vehicle()
         {
+        }
+        public int price
+        {
+            get
+            {
+                return Price;
+            }
+            set
+            {
+                Price = value;
+            }
+            
         }
         public int speed = 0;
         public void accelerate()

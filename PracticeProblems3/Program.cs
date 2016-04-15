@@ -20,8 +20,8 @@ namespace PracticeProblems3
             //humaneSociety.displayAnimals();            
 
             //CAR DEALERSHIP
-            //Menu menu = new Menu();
-            //menu.mainMenu();
+            Menu menu = new Menu();
+            menu.mainMenu();
 
             ////BIRTHDAY
             //OverloadBirthday bday = new OverloadBirthday();
