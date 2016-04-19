@@ -10,28 +10,28 @@ namespace PracticeProblems3
     {
         static void Main(string[] args)
         {
-            ////FLIGHTS
-            //CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
-            //newFlight.addFlights();
-            //newFlight.flightstuff();
+            //FLIGHTS
+            ///CustomIteratorAirplane newFlight = new CustomIteratorAirplane();
+            ///newFlight.addFlights();
+            ///newFlight.displayFlights();
 
             ////HUMANE SOCIETY
-            //HumaneSociety humaneSociety = new HumaneSociety();
-            //humaneSociety.displayAnimals();            
+            ///HumaneSociety humaneSociety = new HumaneSociety();
+            ///humaneSociety.displayAnimals();            
 
             //CAR DEALERSHIP
-            Menu menu = new Menu();
-            menu.mainMenu();
+            ///Menu menu = new Menu();
+            ///menu.mainMenu();
 
             ////BIRTHDAY
-            //OverloadBirthday bday = new OverloadBirthday();
-            //bday.displayPeople();
-            //int personIndex = bday.getPerson();
-            //bday.selectAPerson(personIndex);
+            ///OverloadBirthday bday = new OverloadBirthday();
+            ///bday.displayPeople();
+            ///int personIndex = bday.getPerson();
+            ///bday.selectAPerson(personIndex);
 
             ////WEATHER
-            //Weather weather = new Weather();
-            //weather.displayForecast();
+            ///Weather weather = new Weather();
+            ///weather.displayForecast();
 
         }
     }

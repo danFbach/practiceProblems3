@@ -12,12 +12,13 @@ namespace PracticeProblems3
         public CustomIteratorAirplane()
         {   
         }
-        public void flightstuff()
+        public void displayFlights()
         {
             foreach(Flights flight in this)
             {
                 Console.WriteLine(flight);
             }
+            Console.ReadLine();
         }
         public IEnumerator<Flights> GetEnumerator()
         {
